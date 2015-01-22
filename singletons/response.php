@@ -97,15 +97,19 @@ class JSON_API_Response {
       $this->callback($json_api->query->callback, $json);
     } else {
       // Output the result
-      $this->output($json);
+      $this->output($json, $status);
     }
     exit;
   }
 
-  function output($result) {
+  function output($result, $status) {
     $charset = get_option('blog_charset');
     if (!headers_sent()) {
-      header('HTTP/1.1 200 OK', true);
+      if ($status === 'error') {
+        header('HTTP/1.1 404 Not Found', true);
+      } else {
+        header('HTTP/1.1 200 OK', true);
+      }
       header("Content-Type: application/json; charset=$charset", true);
     }
     echo $result;
