@@ -1,0 +1,11 @@
+{
+  "name": "alessandrobologna/wp-json-api",
+  "type": "wordpress-plugin",
+  "homepage": "https://github.com/alessandrobologna/wp-json-api",
+  "license": "GPLv3",
+  "description": "JSON API allows you to retrieve and manipulate WordPress content using HTTP requests",
+  "keywords": ["json","api"],
+  "require": {
+    "composer/installers": "~1.0.6"
+  }
+}
